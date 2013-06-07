@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Workganize</title>
+
+        <!-- jQuery and jQuery Mobile Content -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/latest/jquery.mobile.structure.min.css" />
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+
+    </head>
+    <body>
+        <div id="home" data-role="page">
+            <div data-role="header" style="text-align: center;" data-position="fixed" data-id="mainhead">
+                <img style="margin-top: 10px; margin-bottom: 5px;" src="img/logo.png"/>
+            </div>
+
+            <div data-role="content">
+                <a href="#crud"><img src="img/CTA.png" style="width: 100%; margin-bottom: 20px;"/></a>
+                <div>
+                    <ul data-inset="true" data-role="listview" role="listbox">
+                        <li>
+                            <a href="#crud">Enter Work</a>
+                        </li>
+                        <li>
+                            <a href="#views">View Work</a>
+                        </li>
+                        <li>
+                            <a href="#integration">Connect</a>
+                        </li>
+                        <li>
+                            <a href="#about">About Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="crud" data-role="page">
+            <div data-role="header" style="text-align: center;" data-position="fixed" data-id="mainhead">
+                <img style="margin-top: 10px; margin-bottom: 5px;" src="img/logo.png"/>
+            </div>
+
+            <div data-role="content">
+                <form action="#" method="post" id="additemform">
+                    <div data-role="fieldcontain">
+                        <label for="location">Where is job located?<span style="color: red">*</span></label>
+                        <input type="text" name="location" id="location" class="required" autofocus="autofocus" placeholder="Tampa, FL or Hidden Colony Apt"/>
+                    </div>
+                    <div data-role="fieldcontain" id="typeOfWork">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup" data-type="horizontal">
+                            <legend>What is the Priority?</legend>
+                            <input type="radio" value="Low" id="low" name="priority" /><label for="low">Low</label>
+                            <input type="radio" checked value="Medium" id="medium" name="priority" /><label for="medium">Medium</label>
+                            <input type="radio" value="High" id="high" name="priority" /><label for="high">High</label>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="people">How many Worker(s) to send?</label>
+                        <input type="range" id="people" value="1" min="1" max="5" name="workersToSend" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="finishby">When to Finish?<span style="color: red">*</span></label>
+                        <input type="date" name="finishby" id="finishby" class="required"/>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="notes">Additional Notes<span style="color: red">*</span></label>
+                        <textarea id="notes" name="notes" placeholder="Put any important Job Information here!" class="required"></textarea>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <button data-inline="true">Take a Picture</button>
+                        <button data-inline="true">Upload</button>
+                    </div>
+                    <input type="submit" value="Submit" id="submit" data-theme="d" />
+                    <input type="reset" value="Cancel" id="cancel"/>
+                </form>
+                <p style="color: red;">* These form fields are required!</p>
+            </div>
+
+            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="views" data-role="page">
+            <div data-role="header" style="text-align: center;" data-position="fixed" data-id="mainhead">
+                <img style="margin-top: 10px; margin-bottom: 5px;" src="img/logo.png"/>
+            </div>
+
+            <div data-role="content">
+                <div class="ui-grid-a">
+                    <a>
+                        <div class="ui-block-a">
+                            <img src="img/contacts-icon.png">
+                            <p>Contact View</p>
+                        </div>
+                    </a>
+                    <a>
+                        <div class="ui-block-b">
+                            <img src="img/Maps-icon.png">
+                            <p>Map View</p>
+                        </div>
+                    </a>
+                    <a>
+                        <div class="ui-block-a">
+                            <img src="img/Gallery-icon.png">
+                            <p>Image View</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="integration" data-role="page">
+            <div data-role="header" style="text-align: center;" data-position="fixed" data-id="mainhead">
+                <img style="margin-top: 10px; margin-bottom: 5px;" src="img/logo.png"/>
+            </div>
+
+            <div data-role="content">
+                <img src="img/Twitter%20feed.jpg">
+            </div>
+
+            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="about" data-role="page">
+            <div data-role="header" style="text-align: center;" data-position="fixed" data-id="mainhead">
+                <img style="margin-top: 10px; margin-bottom: 5px;" src="img/logo.png"/>
+            </div>
+
+            <div data-role="content">
+                <h2>Hello</h2>
+                <p>Here I would put loads of information such as but not limited to</p>
+                <ul>
+                    <li>Research</li>
+                    <li>Ideology</li>
+                    <li>Process of making this app</li>
+                    <li>and More!</li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
