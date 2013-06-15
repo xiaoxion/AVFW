@@ -233,7 +233,7 @@ $(document).on('pageshow','#map',function(){
     });*/
 });
 
-/*var app = {
+var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -263,4 +263,4 @@ $(document).on('pageshow','#map',function(){
 
         console.log('Received Event: ' + id);
     }
-};*/
+};
