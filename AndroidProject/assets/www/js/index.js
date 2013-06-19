@@ -7,6 +7,7 @@
 //Global Variables
 var maintenanceTypes = [ "Cleaning" , "Painting", "Electric" , "Plumbing"],
     priority,
+    watchAccel,
     markers=[];
 
 // Add Item Store Interactions
@@ -29,6 +30,27 @@ $(document).on('pageinit','#crud',function(){
             .attr("value", maintenanceTypes[i])
             .text(maintenanceTypes[i])
     }
+
+    // Camera Functionality
+    var cameraSuccess = function(image) {
+        $('<img/>')
+            .prependTo('#photoSection')
+            .prop("src", image)
+            .css("width", "100%");
+    };
+
+    var cameraError = function(){
+        navigator.notification.alert(
+            "Could not retrieve Photo",
+            function(){},
+            "Camera Error",
+            "Return");
+    };
+
+    $('#takePhoto')
+        .on('click',function(){
+            navigator.camera.getPicture(cameraSuccess, cameraError)
+        });
 
     // Refresh Style
     $("#additemform").trigger("create");
@@ -57,6 +79,55 @@ $(document).on('pageinit','#crud',function(){
 
 // Create List of Jobs and Elements
 $(document).on('pageinit','#views',function(){
+
+    // Compass Functionality
+    var compassSuccess = function(heading) {
+        navigator.notification.alert(
+            "Current Heading: " + heading.magneticHeading,
+            function(){},
+            "Success!",
+            "Return");
+    };
+
+    var compassError = function() {
+        navigator.notification.alert(
+            "Failed to retrieve",
+            function(){},
+            "Compass Error",
+            "Return");
+    };
+
+    $('#compass')
+        .on("click", function(){
+            navigator.compass.getCurrentHeading(compassSuccess, compassError)
+        });
+
+    // Accelerometer Functionality
+    var accelSuccess = function(accel) {
+        $("#x")
+            .empty()
+            .text('The X Position is: ' + accel.x)
+        $("#y")
+            .empty()
+            .text('The Y Position is: ' + accel.y)
+        $("#z")
+            .empty()
+            .text('The Z Position is: ' + accel.z)
+    };
+
+    var accelError = function() {
+        navigator.notification.alert(
+            "Failed to retrieve",
+            function(){},
+            "Accelerometer Error",
+            "Return");
+    };
+
+    var accelOptions = { frequency:1000 };
+
+    $("#accelerometer")
+       .on("click", navigator.accelerometer.watchAcceleration(accelSuccess, accelError, accelOptions));
+
     // Delete All Button
     $('<button></button>')
         .insertBefore('#listofjobs')
@@ -131,10 +202,7 @@ $(document).on('pageinit','#views',function(){
         $('#delall')
             .text('Return to add Jobs!')
             .on('click', function(){
-                $('#addjobs').css('display', 'block');
-                $('#disitem').css('display', 'none');
-                $('#toAdd').addClass('ui-btn-active ui-state-persist');
-                $('#toDis').removeClass('ui-btn-active ui-state-persist');
+                window.location.hash = "crud";
             })
     }
     $('#set').trigger('create');
@@ -176,18 +244,32 @@ $(document).on('pageinit', '#integration', function(){
 
 // Gain access to Google Maps API
 $(document).on('pageshow','#map',function(){
-    var mapsInitialize = function() {
+
+    var onSuccess = function(position){
+        mapsInitialize(position.coords.latitude, position.coords.longitude)
+    };
+
+    var onError = function(error) {
+       navigator.notification.alert(
+           "Could not retrieve Location",
+           mapsInitialize(0, 0),
+           "Location Error",
+           "Reset to Default")
+    };
+
+
+    var mapsInitialize = function(lat,lng) {
         var mapOptions = {
-            center: new google.maps.LatLng(27.921014, -83.040161),
-            zoom: 8,
+            center: new google.maps.LatLng(lat ,lng ),
+            zoom: 16,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-        google.maps.event.trigger(map,'resize');
     };
-    mapsInitialize();
+
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     /*// To add new Marker
     var add = function(location) {
@@ -233,7 +315,7 @@ $(document).on('pageshow','#map',function(){
     });*/
 });
 
-/*var app = {
+var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -263,4 +345,4 @@ $(document).on('pageshow','#map',function(){
 
         console.log('Received Event: ' + id);
     }
-};*/
+};

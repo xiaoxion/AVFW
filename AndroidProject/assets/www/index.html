@@ -115,9 +115,8 @@
                         <label for="notes">Additional Notes<span>*</span></label>
                         <textarea id="notes" name="notes" placeholder="Put any important Job Information here!" class="required"></textarea>
                     </div>
-                    <div data-role="fieldcontain">
-                        <button data-inline="true">Take a Picture</button>
-                        <button data-inline="true">Upload</button>
+                    <div id="photoSection" data-role="fieldcontain">
+                        <button id="takePhoto" data-inline="true">Take a Picture</button>
                     </div>
                     <input type="submit" value="Submit" id="submit" data-theme="d" />
                     <input type="reset" value="Cancel" id="cancel"/>
@@ -149,14 +148,23 @@
                     </a>
                     <a>
                         <div class="ui-block-b">
-                            <img src="img/Maps-icon.png">
-                            <p>Map View</p>
-                        </div>
-                    </a>
-                    <a>
-                        <div class="ui-block-a">
                             <img src="img/Gallery-icon.png">
                             <p>Image View</p>
+                        </div>
+                    </a>
+                    <a id="compass">
+                        <div class="ui-block-a">
+                            <img src="img/Maps-icon.png">
+                            <p>Get Current Direction</p>
+                        </div>
+                    </a>
+                    <a id="accelerometer">
+                        <div class="ui-block-b">
+                            <img src="img/accel.png">
+                            <p>Get Accelerometer</p>
+                            <p id="x"></p>
+                            <p id="y"></p>
+                            <p id="z"></p>
                         </div>
                     </a>
                 </div>
@@ -199,19 +207,24 @@
 
             <div data-role="content">
                 <h2>Hello!</h2>
-                <h3>1.	Less obvious perks of using 'live' data resources include logins and payments. How could Twitter be used in these two scenarios?</h3>
-                <p>Most people that develop tend to forget about the great opportunities of integrating a non-native data from another source. Twitter offers many interesting options, such Login with Twitter. Although integrating it may actually seem like another loophole for us to have to jump through, the end user experience is heightened thus we raise the value of our site, app, and/or brand. This means more profits and happier customers that may cause more exposure for our brand.</p>
-                <p>There are also some programs that let you “pay with a tweet”. These brands place a value on your followers and allow you to take their product for free, and use your followers and exposure to the brand to pay for it. This innovative system lets more people access your products while at the same time they expose you to a much larger demographic for more potential buyers.</p>
-                <h3>2.	Visit Programmableweb.com and search for JSON-P data sources. Why would we need JSON-P, specifically?</h3>
-                <p>JSON P is very important because the technique allows us to bypass the normal limitations of having to abide to the same origin policy and pull dynamic content from other servers. Perhaps a server that is used to store and generate user generate content is stored on another server in another network, this technique would allow us to pull from that server. Also this allows us to pull from other services, such as public API’s, that allow us to pull in content, such as social feed, from other sites entirely. Both enriching our platform and pleasing the user.</p>
-                <h3>3.	Based on the JSON-P search results: what data resource(s) do you think might pair well with which types of Native device features?</h3>
-                <p>The most useful data resource I could think of is using notifications with the Native App. It is the most useful feature as the user doesn’t have to constantly check the app when there is some new dynamic content pushed from the site.</p>
-                <p>But that is boring and very common. I think an interesting way to integrate the native features with dynamic content would be to use Google Maps API and integrate a user defined overlay. The JSON data would by dynamically created on Googles end, in terms of the maps and the overlay. But also the user’s content would be the forefront of the system.</p>
-                <h3>4.	Please describe any design and functionality intentions you may have for your Demo app components this month.</h3>
-                <p>I believe that an app should be simple and should be minimal in how the design is. I want the content to be the forefront of the interface and the design to literally just fade away to the background, yet be easily distinguishable. I don’t think I have the time to integrate animations to accomplish this in this short month. But I think I can make the design clean, minimal, and also pleasant to look at.</p>
-                <p>Functionally speaking, I want the app to be quick and to the point. The idea of the app is that users can quickly and efficiently define work and organize their thoughts while on the road. If I make too many requirements or I make the interface too clunky, then the user may choose to avoid my app whereas if I do not ask enough, they may not input enough information for it to be useful to them. Basically I want them to spend the least amount of time in my app, but to spend more resources on being a more efficient business owner.</p>
-                <h3>5.	Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</h3>
-                <p>Well, I am kind of quick to assume that my ideas can span what the majority thinks. So something that I do now is if/when I have an idea, I consult with other people. For instance, I had a friend that proposed an app idea to me, I thought it was the stupidest thing in the world. But I asked around and found that over 87% of my friends were interested and over 70% mentioned they would actually download it. My new workflow involves trying to get more opinions and doing more research to see what the majority is interested in and what the user wants. Not just what I think is convenient or right.</p>
+                <h3>1.	What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</h3>
+                <p>The simplest and quickest method that I can think of would be to support screen readers. This would enable my site to be navigable despite not being built for those users. I could also provide an option to have larger interfaces so the user would be able to have a smaller margin of error when he clicks.</p>
+                <h3>2.	Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</h3>
+                <p>Some of the more common frustrations is that the common HMTL markup is not entirely appropriate for screen reading.</p>
+                <p>For example, the user will have a line of Bold or Italic text, and since it is semantically marked-up as Bold or Italic, when the screen reader reads that section, it does not recognize the bold or italicized text as being different from other text. Thus the page is stoic and the user is never introduced to some of the emphasized text and content.</p>
+                <p>In order to aide this, I would look to not use the basic Bold and Italic, but rather use the Strong and Emphasis tags to make sure our content is read correctly by the reader and the user is exposed to the emphasized content as we intended it to be.</p>
+                <h3>3.	Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</h3>
+                <p>I believe that touch screen devices and smartphones both have an amazing amount of potential to be accessible for almost all types of users.</p>
+                <p>Firstly, cell phones have a built in accessibility service call TTY mode, which enables blind users to text as it will automatically convert the messages to voice so that they are able to listen to them. It is also paired with talk back, a service that is much like a cell display reader, but since it is much more fine-tuned for the specific OS and increases the usability for blind users immensely as it reads almost all of the important information for the user and lets them access their device by means that would normally be inaccessible.</p>
+                <p>The other means is touchscreen devices. They provide a very simplified means of communication for deaf individuals. The beauty of touchscreen is that because the interface is entirely visual, they can interact with the device and other users with text and visual cues. They do not need to talk nor be able to hear to use them. This opens communication for many people. Also, as a side note, the technology is evolving to the point that the touchscreen will be able to be “felt”. Meaning that even if a user is not able to see, hear, or talk, so long as they can feel, they can interact with the device. Which the premise looks amazing.</p>
+                <h3>4.	Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</h3>
+                <p>Audiobooks is a great app that is built specifically to support accessibility. Since the nature of the site and app is to provide and audio version of written text, it is naturally blind friendly, but they added more to the interface, such as spoken prompts when a user interacts with the display, that make it entirely usable for someone that is visually impaired or blind.</p>
+                <p>The other is Eyes-Free Shell. This interface is actually not visual interface at all. It is built entirely to be used without visual cues, and the large letters make it not only accessible, but built entirely for blind users. It aids a lot as it is not only a home replacement but comes with many other sub-apps that lets the user interact with the phone that would otherwise be way too difficult.</p>
+                <video width="100%" controls>
+                    <source src="vid/big_buck_bunny_480p_stereo.mp4" type="video/mp4">
+                    <source src="vid/big_buck_bunny_480p_stereo.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
             <div data-role="footer" data-position="fixed" data-id="mainfoot">
@@ -224,9 +237,9 @@
         </div>
 
         <script type="text/javascript" src="js/index.js"></script>
-        <!--<script type="text/javascript" src="cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="cordova-2.7.0.js"></script>
         <script type="text/javascript">
             app.initialize();
-        </script>-->
+        </script>
     </body>
 </html>
