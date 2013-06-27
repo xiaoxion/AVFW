@@ -8,7 +8,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
         <title>Workganize</title>
@@ -25,11 +25,10 @@
     </head>
     <body>
         <div id="home" data-role="page">
-            <div data-role="header" data-position="fixed" data-id="mainhead">
+            <header data-role="header" data-position="fixed" data-id="mainhead">
                 <img src="img/logo.png"/>
-            </div>
-
-            <div data-role="content">
+            </header>
+            <section data-role="content">
                 <a href="#crud"><img src="img/CTA.png"/></a>
                 <div>
                     <ul data-inset="true" data-role="listview" role="listbox">
@@ -50,39 +49,37 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-
-            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+            </section>
+            <footer data-role="footer" data-position="fixed" data-id="mainfoot">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                     </ul>
                 </div>
-            </div>
+            </footer>
         </div>
 
         <div id="map" data-role="page">
-            <div data-role="header" data-position="fixed" data-id="mainhead">
+            <header data-role="header" data-position="fixed" data-id="mainhead">
                 <img src="img/logo.png"/>
-            </div>
-            <div data-role="content">
+            </header>
+            <section data-role="content">
                 <div id="map-canvas"></div>
-            </div>
-            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+            </section>
+            <footer data-role="footer" data-position="fixed" data-id="mainfoot">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                     </ul>
                 </div>
-            </div>
+            </footer>
         </div>
 
         <div id="crud" data-role="page">
-            <div data-role="header"  data-position="fixed" data-id="mainhead">
+            <header data-role="header"  data-position="fixed" data-id="mainhead">
                 <img src="img/logo.png"/>
-            </div>
-
-            <div data-role="content">
+            </header>
+            <section data-role="content">
                 <form action="#" method="post" id="additemform">
                     <div data-role="fieldcontain">
                         <label for="jName">What is the job Name?<span>*</span></label>
@@ -90,8 +87,8 @@
                     </div>
                     <div data-role="fieldcontain">
                         <label for="locationButton">Where is job located?<span>*</span></label>
-                        <input type="hidden" name="location" id="location" class="required"/>
-                    <a href="#map"><button id="locationButton" data-inline="true">Select Point on Map</button></a>
+                        <input type="text" name="location" id="location" class="required"/>
+                        <a href="#map"><button id="locationButton" data-inline="true">Select Point on Map</button></a>
                     </div>
                     <div data-role="fieldcontain" id="typeOfWork">
                     </div>
@@ -122,23 +119,21 @@
                     <input type="reset" value="Cancel" id="cancel"/>
                 </form>
                 <p id="red">* These form fields are required!</p>
-            </div>
-
-            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+            </section>
+            <footer data-role="footer" data-position="fixed" data-id="mainfoot">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                     </ul>
                 </div>
-            </div>
+            </footer>
         </div>
 
         <div id="views" data-role="page">
-            <div data-role="header" data-position="fixed" data-id="mainhead">
+            <header data-role="header" data-position="fixed" data-id="mainhead">
                 <img src="img/logo.png"/>
-            </div>
-
-            <div data-role="content">
+            </header>
+            <section data-role="content">
                 <div class="ui-grid-a">
                     <a>
                         <div class="ui-block-a">
@@ -171,75 +166,103 @@
                 <div data-role="content" id="set">
                     <ul data-role="listview" data-inset="true" id="listofjobs"></ul>
                 </div>
-            </div>
-
-            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+            </section>
+            <footer data-role="footer" data-position="fixed" data-id="mainfoot">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                     </ul>
                 </div>
-            </div>
+            </footer>
         </div>
 
         <div id="integration" data-role="page">
-            <div data-role="header" data-position="fixed" data-id="mainhead">
+            <header data-role="header" data-position="fixed" data-id="mainhead">
                 <img src="img/logo.png"/>
-            </div>
-
-            <div data-role="content">
+            </header>
+            <section data-role="content">
                 <div class='' id="instafeed"></div>
-            </div>
-
-            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+            </section>
+            <footer data-role="footer" data-position="fixed" data-id="mainfoot">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                     </ul>
                 </div>
-            </div>
+            </footer>
         </div>
 
         <div id="about" data-role="page">
-            <div data-role="header" data-position="fixed" data-id="mainhead">
+            <header data-role="header" data-position="fixed" data-id="mainhead">
                 <img src="img/logo.png"/>
-            </div>
-
-            <div data-role="content">
+            </header>
+            <section data-role="content">
                 <h2>Hello!</h2>
-                <h3>1.	What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</h3>
-                <p>The simplest and quickest method that I can think of would be to support screen readers. This would enable my site to be navigable despite not being built for those users. I could also provide an option to have larger interfaces so the user would be able to have a smaller margin of error when he clicks.</p>
-                <h3>2.	Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</h3>
-                <p>Some of the more common frustrations is that the common HMTL markup is not entirely appropriate for screen reading.</p>
-                <p>For example, the user will have a line of Bold or Italic text, and since it is semantically marked-up as Bold or Italic, when the screen reader reads that section, it does not recognize the bold or italicized text as being different from other text. Thus the page is stoic and the user is never introduced to some of the emphasized text and content.</p>
-                <p>In order to aide this, I would look to not use the basic Bold and Italic, but rather use the Strong and Emphasis tags to make sure our content is read correctly by the reader and the user is exposed to the emphasized content as we intended it to be.</p>
-                <h3>3.	Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</h3>
-                <p>I believe that touch screen devices and smartphones both have an amazing amount of potential to be accessible for almost all types of users.</p>
-                <p>Firstly, cell phones have a built in accessibility service call TTY mode, which enables blind users to text as it will automatically convert the messages to voice so that they are able to listen to them. It is also paired with talk back, a service that is much like a cell display reader, but since it is much more fine-tuned for the specific OS and increases the usability for blind users immensely as it reads almost all of the important information for the user and lets them access their device by means that would normally be inaccessible.</p>
-                <p>The other means is touchscreen devices. They provide a very simplified means of communication for deaf individuals. The beauty of touchscreen is that because the interface is entirely visual, they can interact with the device and other users with text and visual cues. They do not need to talk nor be able to hear to use them. This opens communication for many people. Also, as a side note, the technology is evolving to the point that the touchscreen will be able to be “felt”. Meaning that even if a user is not able to see, hear, or talk, so long as they can feel, they can interact with the device. Which the premise looks amazing.</p>
-                <h3>4.	Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</h3>
-                <p>Audiobooks is a great app that is built specifically to support accessibility. Since the nature of the site and app is to provide and audio version of written text, it is naturally blind friendly, but they added more to the interface, such as spoken prompts when a user interacts with the display, that make it entirely usable for someone that is visually impaired or blind.</p>
-                <p>The other is Eyes-Free Shell. This interface is actually not visual interface at all. It is built entirely to be used without visual cues, and the large letters make it not only accessible, but built entirely for blind users. It aids a lot as it is not only a home replacement but comes with many other sub-apps that lets the user interact with the phone that would otherwise be way too difficult.</p>
-                <video width="480">
-                    <source src="vid/big_buck_bunny_480p_stereo.mp4" type="video/mp4">
-                    <source src="vid/big_buck_bunny_480p_stereo.ogg" type="video/ogg">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-
-            <div data-role="footer" data-position="fixed" data-id="mainfoot">
+                <h3>What are the 'top selling' app categories in the U.S.? Japan? Great Britain?</h3>
+                <p>U.S. (Statista, 2013) (App Brain, 2013)</p>
+                <ol>
+                    <li>Games</li>
+                    <li>Education</li>
+                    <li>Entertainment</li>
+                    <li>Personalization</li>
+                    <li>Lifestyle</li>
+                </ol>
+                <p>Japan (Toto, 2013)</p>
+                <ol>
+                    <li>Games</li>
+                    <li>Productivity</li>
+                    <li>Tools</li>
+                    <li>Photography</li>
+                    <li>Music</li>
+                </ol>
+                <p>Great Britain (Richmond, 2011) (Market, 2013)</p>
+                <ol>
+                    <li>Games</li>
+                    <li>Travel</li>
+                    <li>Entertaiment</li>
+                    <li>Social</li>
+                    <li>Productivity</li>
+                </ol>
+                <h3>Based on your three answers above, what might you infer about each of the markets listed?</h3>
+                <p>According to the data that I was able to gather, the U.S. and Great Britain, which are both considered western cultures, had similar tastes. Although the main difference was in how much interest they have in travel apps. Japan on the other hand has a vastly different taste, but the only constant between all cultures was games. All cultures that are somewhat industrialized tended to have an interest in games.</p>
+                <h3>What is the average cost and bandwidth limits per user (in general) in each of the three markets? How may this impact development?</h3>
+                <p>US (Digital Trends, 2012)(Maximum PC, 2012)(NewAmerica, 2013)
+                    $5.50 per GB Mobile
+                    Bandwidth Cap incremental by 2 GB on average</p>
+                <p>Japan (Maximum PC, 2012)(NewAmerica, 2013)
+                    $4.48 per GB Mobile
+                    Bandwidth Cap incremental by 5 GB on average</p>
+                <p>Great Britain (Digital Trends, 2012)(Maximum PC, 2012)(NewAmerica, 2013)
+                    $2.50 per GB Mobile
+                    Bandwidth Cap incremental by 1 GB on average</p>
+                <p>This would limit development by forcing the developers to have to integrate some sort of data reducing measures. The users would be upset if the developer’s app required constant connectivity and caused them to use all their data or face data overage charges. Although this is considered best practice, it also means that they have to spend resources optimizing their network and app data usage to take this into consideration and limit the request made via their mobile network.</p>
+                <h3>And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.</h3>
+                <p>Personally, I would have my app be more focused on somewhat more westernized cultures, then I would expand to include a larger array of cultures and languages. By choosing the English language first, I can reach a large percentage of the UK, US, and Australian markets in one swoop. Since they are considered western, and tend to have some of the same tastes, I wouldn’t have to change the way the app functions within each society, but rather on functionality of the actual app. Once the functionality is flushed out, I would then focus towards globalizing the app and introduce more options for less developed countries that have sparse internet connectivity.</p>
+                <h3>References</h3>
+                <ul>
+                    <li>Market, T. (n.d.). Around the world in 90 App Stores: Apple's top sellers show differences in our app tastes - The Next Web. The Next Web - International technology news, business & culture. Retrieved June 24, 2013, from http://thenextweb.com/apple/2011/01/19/around-the-world-in-90-app-stores-apples-top-sellers-show-differences-in-our-app-tastes/</li>
+                    <li>Most Popular Android Market Categories. (2013, June 24). App Brain. Retrieved June 24, 2013, from www.appbrain.com/stats/android-market-app-categories</li>
+                    <li>Richmond, S. (n.d.). The 50 best mobile apps - Telegraph. Telegraph.co.uk - Telegraph online, Daily Telegraph, Sunday Telegraph - Telegraph. Retrieved June 24, 2013, from http://www.telegraph.co.uk/technology/mobile-app-reviews/8319652/The-50-best-mobile-apps.html</li>
+                    <li>The Cost of Connectivity | NewAmerica.net. (n.d.). NewAmerica.net. Retrieved June 24, 2013, from http://newamerica.net/publications/policy/the_cost_of_connectivity</li>
+                    <li>Toto, S. (n.d.). Japan's 32 Best iPhone Apps (All Available In English) | TechCrunch. TechCrunch. Retrieved June 24, 2013, from http://techcrunch.com/2009/09/06/japans-32-best-iphone-apps-all-available-in-english/</li>
+                    <li>U.S. smartphone owners pay 3-10 times more for 4G LTE data, says study | Digital Trends. (n.d.). Technology News, Product Reviews and App Reviews | Digital Trends. Retrieved June 24, 2013, from http://www.digitaltrends.com/mobile/us-phone-owners-pay-too-much-for-lte-study/</li>
+                    <li>wanted, t. o., & now., e. t. (n.d.). How Bad Do We Really Have it? Bandwidth Caps Around the World | Maximum PC.Technology News, Computer and Notebook Reviews, Computer News, Computer Mods, PC News | Maximum PC. Retrieved June 24, 2013, from http://www.maximumpc.com/article/features/how_bad_do_we_really_have_it_bandwidth_caps_around_world</li>
+                    <li>Apple: most popular app store categories 2013 | Statistic. (n.d.). • Statista - The Statistics Portal for Market Data, Market Research and Market Studies. Retrieved June 24, 2013, from http://www.statista.com/statistics/166976/popular-categories-in-the-app-store/</li>
+                </ul>
+            </section>
+            <footer data-role="footer" data-position="fixed" data-id="mainfoot">
                 <div data-role="navbar">
                     <ul>
                         <li><a href="#home">Home</a></li>
                     </ul>
                 </div>
-            </div>
+            </footer>
         </div>
 
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        /*<script type="text/javascript" src="cordova-2.7.0.js"></script>
         <script type="text/javascript">
             app.initialize();
-        </script>*/
+        </script>
     </body>
 </html>

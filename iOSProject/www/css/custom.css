@@ -6,7 +6,7 @@ body {
     height: 100%;
 }
 
-div[data-role=header] {
+header {
     text-align: center;
 }
 

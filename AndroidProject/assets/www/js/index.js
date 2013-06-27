@@ -257,7 +257,6 @@ $(document).on('pageshow','#map',function(){
            "Reset to Default")
     };
 
-
     var mapsInitialize = function(lat,lng) {
         var mapOptions = {
             center: new google.maps.LatLng(lat ,lng ),
@@ -267,53 +266,54 @@ $(document).on('pageshow','#map',function(){
 
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+
+        // To add new Marker
+        var add = function(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+
+            var information = new google.maps.InfoWindow({
+                content: '<a href="#crud"><button id="infoWindow" data-inline="true">Click Here to Select</button></a>'
+            });
+
+            // GeoCode Marker
+            $('#map').on('click', '#infoWindow', function(){
+                $('#location').prop('value', [location.jb,location.kb])
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                information.open(map,marker);
+            });
+
+            markers.push(marker);
+        };
+
+        // Select All Overlays
+        var setAllMap = function(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        };
+
+        // Clear Previous Marker
+        var clear = function() {
+            setAllMap(null);
+            markers = [];
+        };
+
+        // On Click Functionality
+        google.maps.event.addListener(map, 'click', function(event) {
+            clear();
+            add(event.latLng);
+        });
     };
 
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
-    /*// To add new Marker
-    var add = function(location) {
-        var marker = new google.maps.Marker({
-            position: location,
-            map: map
-        });
-
-        var information = new google.maps.InfoWindow({
-            content: '<a href="#crud"><button id="infoWindow" data-inline="true">Click Here to Select</button></a>'
-        });
-
-        // GeoCode Marker
-        $('#map').on('click', '#infoWindow', function(){
-            console.log(location.jb + ', ' + location.kb);
-            $('#location').prop('value', [location.jb,location.kb])
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-            information.open(map,marker);
-        });
-
-        markers.push(marker);
-    };
-
-    // Select All Overlays
-    var setAllMap = function(map) {
-        for (var i = 0; i < markers.length; i++) {
-            markers[i].setMap(map);
-        }
-    };
-
-    // Clear Previous Marker
-    var clear = function() {
-        setAllMap(null);
-        markers = [];
-    };
-
-    // On Click Functionality
-    google.maps.event.addListener(map, 'click', function(event) {
-        clear();
-        add(event.latLng);
-    });*/
 });
+
+
 
 var app = {
     // Application Constructor
